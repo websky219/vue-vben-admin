@@ -1,0 +1,1 @@
+import{a as r,ap as e,f as a,o as t,j as s}from"./index.741c7e80.js";import"./xlsx.a48e520c.js";var n=r({name:"Redirect",setup(){const{currentRoute:r,replace:t}=e(),{params:s,query:n}=a(r),{path:o}=s;return t({path:"/"+(Array.isArray(o)?o.join("/"):o),query:n}),{}}});n.render=function(r,e,a,n,o,p){return t(),s("div")};export default n;

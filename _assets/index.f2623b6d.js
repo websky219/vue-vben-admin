@@ -1,0 +1,1 @@
+import{ao as a,y as o}from"./index.741c7e80.js";const s=a((()=>import("./index.a8a7bb5a.js")));o(s);export{s as C};
