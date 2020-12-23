@@ -1,1 +1,0 @@
-import{cm as s,r as e,f as t,d5 as n}from"./index.db24b8f1.js";function o(o){if(!s())throw new Error("Please put useDescription function in the setup function!");const r=e(null),u=e(!1);return[function(s){t(u)&&n()||(r.value=s,o&&s.setDescProps(o),u.value=!0)},{setDescProps:s=>{t(r).setDescProps(s)}}]}export{o as u};

@@ -1,1 +1,0 @@
-import{cm as o}from"./index.db24b8f1.js";function s(s){const n=o();n&&Object.assign(n.proxy,s)}export{s as u};
