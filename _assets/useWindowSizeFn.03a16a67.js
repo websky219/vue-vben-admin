@@ -1,0 +1,1 @@
+import{aQ as e,cQ as n,cO as t}from"./index.a952a825.js";function i(i,s=150,r){let a=()=>{i()};const[o,d]=e(a,s,r);a=o;const c=()=>{r&&r.immediate&&a(),window.addEventListener("resize",a)},m=()=>{window.removeEventListener("resize",a),d()};return n((()=>{c()})),t((()=>{m()})),[c,m]}export{i as u};
