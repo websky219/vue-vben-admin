@@ -1,1 +1,0 @@
-import{a,i as e,o as r,j as s,k as t,w as d,p as i}from"./index.ef3db6d5.js";import"./xlsx.a48e520c.js";var n=a({});const o={class:"p-5"},c=i("进入子级详情页");n.render=function(a,i,n,l,f,u){const p=e("router-link");return r(),s("div",o,[t(p,{to:"/feat/breadcrumb/children/childrenDetail"},{default:d((()=>[c])),_:1})])};export default n;

@@ -1,1 +1,0 @@
-import{a,i as s,o as t,j as e,k as r,w as o,p as d}from"./index.ef3db6d5.js";import"./xlsx.a48e520c.js";var i=a({});const n={class:"p-5"},f=d("进入平级详情页");i.render=function(a,d,i,l,c,u){const p=s("router-link");return t(),e("div",n,[r(p,{to:"/feat/breadcrumb/flatDetail"},{default:o((()=>[f])),_:1})])};export default i;
