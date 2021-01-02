@@ -1,0 +1,1 @@
+import{a as e,o as r,j as a}from"./index.683ee02b.js";import"./xlsx.a48e520c.js";var n=e({});n.render=function(e,n,o,s,t,i){return r(),a("div",null," 子级详情页 ")};export default n;
