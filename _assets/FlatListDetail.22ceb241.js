@@ -1,1 +1,0 @@
-import{a as r,o as e,j as a}from"./index.e622111d.js";import"./xlsx.a48e520c.js";var n=r({});n.render=function(r,n,o,s,t,d){return e(),a("div",null," 平级详情页 ")};export default n;
