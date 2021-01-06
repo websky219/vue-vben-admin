@@ -1,0 +1,1 @@
+import{a,o as r,j as e}from"./index.a6ab9244.js";import"./xlsx.9d951958.js";var n=a({name:"FrameBlank"});n.render=function(a,n,o,s,t,d){return r(),e("div")};export default n;

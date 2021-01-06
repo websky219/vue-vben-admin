@@ -1,1 +1,0 @@
-import{ad as e}from"./index.82957b1b.js";var a=e("success","processing","error","default","warning"),r=e("pink","red","yellow","orange","cyan","green","blue","purple","geekblue","magenta","volcano","gold","lime");export{r as P,a};
