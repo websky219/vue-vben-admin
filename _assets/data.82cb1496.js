@@ -1,1 +1,0 @@
-import"./index.e76c06f1.js";import"./xlsx.9d951958.js";const o=(()=>{const o=[];for(let e=0;e<12;e++)o.push({title:"Vben Admin",icon:"logos:vue",color:"#1890ff",active:"100",new:"1,799",download:"bx:bx-download"});return o})();export{o as cardList};
