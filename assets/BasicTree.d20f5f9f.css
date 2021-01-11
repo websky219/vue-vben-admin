@@ -1,0 +1,1 @@
+.basic-tree{position:relative}.basic-tree-title{position:relative;display:inline-block;width:100%;padding-right:10px}.basic-tree-title:hover .basic-tree__action{visibility:visible}.basic-tree__content{display:inline-block;overflow:hidden}.basic-tree__actions{position:absolute;top:0;right:0;display:flex}.basic-tree__action{margin-left:4px;visibility:hidden}
