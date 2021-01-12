@@ -1,1 +1,0 @@
-import{d as r,o as e,i as n}from"./index.263e87c1.js";var a=r({});a.render=function(r,a,d,i,o,t){return e(),n("div",null," 子级详情页 ")};export default a;
