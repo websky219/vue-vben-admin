@@ -1,1 +1,0 @@
-import{bs as e}from"./index.c87ef19b.js";export{bs as default}from"./index.c87ef19b.js";
