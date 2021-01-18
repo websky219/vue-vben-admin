@@ -1,1 +1,0 @@
-import{aq as o}from"./index.c9b191ae.js";function s(s){const a=o();a&&Object.assign(a.proxy,s)}export{s as u};
