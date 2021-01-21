@@ -1,0 +1,1 @@
+import{d as a,cr as s,cs as d,o as t,i as c,bz as e}from"./index.a566a5ca.js";var o=a({});const r=e("data-v-22d85330");s("data-v-22d85330");const n={class:"m-10 auth-page"};d();const p=r(((a,s,d,e,o,r)=>(t(),c("div",n," Super 角色可见 "))));o.render=p,o.__scopeId="data-v-22d85330";export default o;

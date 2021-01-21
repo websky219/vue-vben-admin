@@ -1,1 +1,0 @@
-import{a3 as a,a2 as n}from"./index.a1da5219.js";const t=Symbol();function o(a){return n(a,t,{native:!0})}function r(){return a(t)}export{o as c,r as u};
