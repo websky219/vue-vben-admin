@@ -1,1 +1,0 @@
-import{n as e}from"./index.d4318adc.js";var a=e("success","processing","error","default","warning"),r=e("pink","red","yellow","orange","cyan","green","blue","purple","geekblue","magenta","volcano","gold","lime");export{r as P,a};

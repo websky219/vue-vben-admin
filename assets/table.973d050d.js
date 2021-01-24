@@ -1,0 +1,1 @@
+import{cV as r}from"./index.de7a3c72.js";var t;(function(e){e.DEMO_LIST="/table/getDemoList"})(t||(t={}));function o(e){return r.request({url:t.DEMO_LIST,method:"GET",params:e,headers:{ignoreCancelToken:!0}})}export{o as d};
