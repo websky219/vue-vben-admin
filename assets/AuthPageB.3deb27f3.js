@@ -1,0 +1,1 @@
+import{d as a,cp as s,cq as d,o as t,i as e,bw as c}from"./index.06f3ee29.js";import"./vendor.0d1494f4.js";var o=a({});const r=c("data-v-a7dfc4b4");s("data-v-a7dfc4b4");const f={class:"m-10 auth-page"};d();const n=r(((a,s,d,c,o,r)=>(t(),e("div",f," Test 角色可见 "))));o.render=n,o.__scopeId="data-v-a7dfc4b4";export default o;
