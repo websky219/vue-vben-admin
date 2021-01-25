@@ -1,1 +1,0 @@
-import{cW as e}from"./index.50e8b5dc.js";var t;function o(){return e.request({url:t.OPTIONS_LIST,method:"GET"})}(t||(t={})).OPTIONS_LIST="/select/getDemoOptions";export{o};
