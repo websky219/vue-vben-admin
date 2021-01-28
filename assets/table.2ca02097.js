@@ -1,1 +1,0 @@
-import{cT as e}from"./index.25b7b5fc.js";var r;function t(t){return e.request({url:r.DEMO_LIST,method:"GET",params:t,headers:{ignoreCancelToken:!0}})}(r||(r={})).DEMO_LIST="/table/getDemoList";export{t as d};
