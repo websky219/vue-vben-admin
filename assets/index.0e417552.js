@@ -1,1 +1,0 @@
-import{aV as s,aW as a}from"./index.fc2bceed.js";const e=s((()=>a((()=>import("./index.b9212177.js")),["/assets/index.b9212177.js","/assets/index.fc2bceed.js","/assets/index.06ce6422.css","/assets/vendor.3b1829c7.js","/assets/vendor.4a5fa02d.css","/assets/animation.e9a67fb3.js"])));export{e as C};
