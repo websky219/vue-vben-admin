@@ -1,0 +1,1 @@
+import{d as a,cp as s,cq as t,o as d,i as c,bw as e}from"./index.fc2bceed.js";import"./vendor.3b1829c7.js";var o=a({});const r=e("data-v-704336aa");s("data-v-704336aa");const n={class:"test"};t();const v=r(((a,s,t,e,o,r)=>(d(),c("div",n," 位于主框架外的页面 "))));o.render=v,o.__scopeId="data-v-704336aa";export default o;
