@@ -1,1 +1,0 @@
-import{aV as s,aW as a}from"./index.72961157.js";const o=s((()=>a((()=>import("./index.851c713b.js")),["/assets/index.851c713b.js","/assets/index.72961157.js","/assets/index.06ce6422.css","/assets/vendor.3b1829c7.js","/assets/vendor.4a5fa02d.css","/assets/animation.a805db4d.js"])));export{o as C};
