@@ -6,12 +6,11 @@ import legacy from '@vitejs/plugin-legacy';
 
 import { loadEnv } from 'vite';
 
-import { modifyVars } from './build/config/lessModifyVars';
+import { generateModifyVars } from './build/config/themeConfig';
 import { createProxy } from './build/vite/proxy';
-
 import { wrapperEnv } from './build/utils';
-
 import { createVitePlugins } from './build/vite/plugin';
+import { OUTPUT_DIR } from './build/constant';
 
 const pkg = require('./package.json');
 
@@ -19,7 +18,7 @@ function pathResolve(dir: string) {
   return resolve(__dirname, '.', dir);
 }
 
-const root: string = process.cwd();
+const root = process.cwd();
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root);
@@ -29,10 +28,14 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
 
   return {
+    base: VITE_PUBLIC_PATH,
     root,
-    alias: {
-      '/@/': `${pathResolve('src')}/`,
-    },
+    alias: [
+      {
+        find: /^\/@\//,
+        replacement: pathResolve('src') + '/',
+      },
+    ],
     server: {
       port: VITE_PORT,
       proxy: createProxy(VITE_PROXY),
@@ -40,23 +43,18 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         overlay: true,
       },
     },
+
     build: {
-      base: VITE_PUBLIC_PATH,
+      outDir: OUTPUT_DIR,
+      polyfillDynamicImport: VITE_LEGACY,
       terserOptions: {
         compress: {
           keep_infinity: true,
           drop_console: VITE_DROP_CONSOLE,
         },
       },
-      // minify: 'esbuild',
-      rollupOptions: {
-        output: {
-          compact: true,
-        },
-      },
-      commonjsOptions: {
-        ignore: ['fs', 'crypto', 'stream'],
-      },
+      brotliSize: false,
+      chunkSizeWarningLimit: 1200,
     },
     define: {
       __VERSION__: pkg.version,
@@ -72,7 +70,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           modifyVars: {
             // reference:  Avoid repeated references
             hack: `true; @import (reference) "${resolve('src/design/config.less')}";`,
-            ...modifyVars,
+            ...generateModifyVars(),
           },
           javascriptEnabled: true,
         },
@@ -83,16 +81,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       vue(),
       vueJsx(),
       ...(VITE_LEGACY && isBuild ? [legacy()] : []),
-      ...createVitePlugins(viteEnv, isBuild, mode),
+      ...createVitePlugins(viteEnv, isBuild),
     ],
 
     optimizeDeps: {
-      include: [
-        '@ant-design/icons-vue',
-        'ant-design-vue/es/locale/zh_CN',
-        'moment/dist/locale/zh-cn',
-        'ant-design-vue/es/locale/en_US',
-      ],
+      include: ['@iconify/iconify'],
     },
   };
 };

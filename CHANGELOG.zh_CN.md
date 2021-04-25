@@ -1,11 +1,64 @@
 ## Wip
 
+### ✨ Features
+
+- useModal 新增返回值函数 `redoModalHeight`,用于在 modal 内为动态内容时刷新 modal 高度
+
+### 🐛 Bug Fixes
+
+- 修复 Upload 组件 maxNumber 失效问题
+- 修复打包 sourcemap 报错
+- 修复代码 debugger 位置显示错误
+- 修复 mock 插件 post 请求错误问题
+- 修复部分主题颜色值错误
+- 修复表格在可编辑行状态回车确认
+
+### 🎫 Chores
+
+- 文档更新
+- 升级 ant-design-vue 到 2.0.0
+
+## 2.0.0-rc.18 (2021-02-05)
+
+### ✨ Features
+
+- `ApiSelect`新增 `numberToString`属性,用于将 value 为`number`的值全部转化为`string`
+- 新增主题色切换
+- 打包图片压缩
+
+### ⚡ Performance Improvements
+
+当不使用 mock 时,将 `mock.js` 移出打包文件
+
+### 🐛 Bug Fixes
+
+- 修复 modal 高度计算错误
+- 修复菜单折叠状态下点击标签页弹出菜单
+- 修复 form 表单初始化值为 0 问题
+- 修复表格换行问题
+- 修复菜单外链不跳转
+- 修复菜单顶部显示问题
+- 修复`modifyVars`配置失效问题
+
+## 2.0.0-rc.17 (2021-01-18)
+
+### ✨ Refactor
+
+- 新增 `SimpleMenu`组件替代左侧菜单组件(顶部菜单没有替换,功能尽量做到简单不卡)。解决菜单卡顿问题。
+- `ant-design-vue`组件不再全局注册。以便于更好配合 css 按需引入。如果需要全局注册,需要自己加
+
+### ✨ Features
+
+- `css` 按需引入
+
 ### 🐛 Bug Fixes
 
 - 修复 `TableAction`图标问题
 - 修复菜单折叠按钮丢失问题
+- 修复菜单相关问题
+- 修复 moment 多语言问题
 
-## 2.0.0-rc.16 (2020-01-12)
+## 2.0.0-rc.16 (2021-01-12)
 
 ### ✨ Refactor
 

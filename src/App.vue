@@ -21,16 +21,14 @@
     name: 'App',
     components: { ConfigProvider, AppProvider },
     setup() {
+      // support Multi-language
       const { antConfigLocale, setLocale } = useLocale();
       setLocale();
 
       // Initialize vuex internal system configuration
       initAppConfigStore();
-
       // Create a lock screen monitor
       const lockEvent = useLockPage();
-
-      // support Multi-language
 
       return {
         antConfigLocale,

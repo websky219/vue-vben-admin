@@ -2,38 +2,49 @@ import type { Plugin } from 'vite';
 
 import PurgeIcons from 'vite-plugin-purge-icons';
 
-import visualizer from 'rollup-plugin-visualizer';
-
-// @ts-ignore
-import pkg from '../../../package.json';
-import { ViteEnv, isReportMode } from '../../utils';
+import { ViteEnv } from '../../utils';
 import { configHtmlPlugin } from './html';
 import { configPwaConfig } from './pwa';
 import { configMockPlugin } from './mock';
 import { configGzipPlugin } from './gzip';
+import { configStyleImportPlugin } from './styleImport';
+import { configVisualizerConfig } from './visualizer';
+import { configThemePlugin } from './theme';
+import { configImageminPlugin } from './imagemin';
 
 // gen vite plugins
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, mode: string) {
+export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+  const { VITE_USE_IMAGEMIN, VITE_USE_MOCK } = viteEnv;
+
   const vitePlugins: (Plugin | Plugin[])[] = [];
 
   // vite-plugin-html
   vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
 
-  // vite-plugin-pwa
-  vitePlugins.push(configPwaConfig(viteEnv, isBuild));
-
   // vite-plugin-mock
-  vitePlugins.push(configMockPlugin(viteEnv, isBuild));
+  VITE_USE_MOCK && vitePlugins.push(configMockPlugin(isBuild));
 
   // vite-plugin-purge-icons
   vitePlugins.push(PurgeIcons());
 
-  // rollup-plugin-gzip
-  vitePlugins.push(configGzipPlugin(isBuild));
+  // vite-plugin-style-import
+  vitePlugins.push(configStyleImportPlugin());
 
   // rollup-plugin-visualizer
-  if (isReportMode()) {
-    vitePlugins.push(visualizer({ filename: './build/.cache/stats.html', open: true }) as Plugin);
+  vitePlugins.push(configVisualizerConfig());
+
+  //vite-plugin-theme
+  vitePlugins.push(configThemePlugin());
+
+  if (isBuild) {
+    //vite-plugin-imagemin
+    VITE_USE_IMAGEMIN && vitePlugins.push(configImageminPlugin());
+
+    // rollup-plugin-gzip
+    vitePlugins.push(configGzipPlugin(isBuild));
+
+    // vite-plugin-pwa
+    vitePlugins.push(configPwaConfig(viteEnv));
   }
 
   return vitePlugins;

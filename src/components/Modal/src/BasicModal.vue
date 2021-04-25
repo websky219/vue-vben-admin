@@ -16,7 +16,7 @@
     <template #footer v-if="!$slots.footer">
       <ModalFooter v-bind="getProps" @ok="handleOk" @cancel="handleCancel">
         <template #[item]="data" v-for="item in Object.keys($slots)">
-          <slot :name="item" v-bind="data" />
+          <slot :name="item" v-bind="data"></slot>
         </template>
       </ModalFooter>
     </template>
@@ -35,11 +35,11 @@
       @ext-height="handleExtHeight"
       @height-change="handleHeightChange"
     >
-      <slot />
+      <slot></slot>
     </ModalWrapper>
 
     <template #[item]="data" v-for="item in Object.keys(omit($slots, 'default'))">
-      <slot :name="item" v-bind="data" />
+      <slot :name="item" v-bind="data"></slot>
     </template>
   </Modal>
 </template>
@@ -55,6 +55,7 @@
     watchEffect,
     toRef,
     getCurrentInstance,
+    nextTick,
   } from 'vue';
 
   import Modal from './components/Modal';
@@ -68,23 +69,33 @@
 
   import { basicProps } from './props';
   import { useFullScreen } from './hooks/useModalFullScreen';
+
   import { omit } from 'lodash-es';
   export default defineComponent({
     name: 'BasicModal',
-    inheritAttrs: false,
     components: { Modal, ModalWrapper, ModalClose, ModalFooter, ModalHeader },
+    inheritAttrs: false,
     props: basicProps,
     emits: ['visible-change', 'height-change', 'cancel', 'ok', 'register'],
     setup(props, { emit, attrs }) {
       const visibleRef = ref(false);
       const propsRef = ref<Partial<ModalProps> | null>(null);
       const modalWrapperRef = ref<ComponentRef>(null);
+
       // modal   Bottom and top height
       const extHeightRef = ref(0);
       const modalMethods: ModalMethods = {
         setModalProps,
         emitVisible: undefined,
+        redoModalHeight: () => {
+          nextTick(() => {
+            if (unref(modalWrapperRef)) {
+              (unref(modalWrapperRef) as any).setModalHeight();
+            }
+          });
+        },
       };
+
       const instance = getCurrentInstance();
       if (instance) {
         emit('register', modalMethods, instance.uid);
@@ -135,6 +146,11 @@
         (v) => {
           emit('visible-change', v);
           instance && modalMethods.emitVisible?.(v, instance.uid);
+          nextTick(() => {
+            if (props.scrollTop && v && unref(modalWrapperRef)) {
+              (unref(modalWrapperRef) as any).scrollTop();
+            }
+          });
         },
         {
           immediate: false,

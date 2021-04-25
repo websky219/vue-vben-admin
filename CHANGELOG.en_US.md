@@ -1,3 +1,43 @@
+## 2.0.0-rc.18 (2021-02-05)
+
+### ✨ Features
+
+- `ApiSelect` adds `numberToString` property, which is used to convert all the value of `number` into `string`
+- Added theme color switch
+- Packed image compression
+
+### ⚡ Performance Improvements
+
+When mock is not used, move `mock.js` out of the package file
+
+### 🐛 Bug Fixes
+
+- Fix modal height calculation error
+- Fix the pop-up menu when the menu is clicked on the tab when the menu is collapsed
+- Fix the problem that the initial value of form is 0
+- Fix table wrapping problem
+- Fix the menu outside link does not jump
+- Fix the display problem at the top of the menu
+- Fix the issue of `modifyVars` configuration failure
+
+## 2.0.0-rc.17 (2020-01-18)
+
+### ✨ Refactor
+
+- Added `SimpleMenu` component to replace the left menu component (the top menu is not replaced, the function should be as simple as possible without stuck). Solve the menu stuck problem.
+- The `ant-design-vue` component is no longer registered globally. In order to better coordinate with the introduction of css on demand. If you need to register globally, you need to add it yourself
+
+### ✨ Features
+
+- `css` import on demand
+
+### 🐛 Bug Fixes
+
+- Fix `TableAction` icon problem
+- Fix the problem of missing menu folding buttons
+- Fix menu related issues
+- Fix moment multilingual issue
+
 ## 2.0.0-rc.16 (2020-01-12)
 
 ### ✨ Refactor

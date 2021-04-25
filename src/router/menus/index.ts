@@ -54,7 +54,9 @@ export const getMenus = async (): Promise<Menu[]> => {
 // 获取当前路径的顶级路径
 export async function getCurrentParentPath(currentPath: string) {
   const menus = await getAsyncMenus();
+
   const allParentPath = await getAllParentPath(menus, currentPath);
+
   return allParentPath?.[0];
 }
 
@@ -62,7 +64,6 @@ export async function getCurrentParentPath(currentPath: string) {
 export async function getShallowMenus(): Promise<Menu[]> {
   const menus = await getAsyncMenus();
   const routes = router.getRoutes();
-
   const shallowMenuList = menus.map((item) => ({ ...item, children: undefined }));
   return !isBackMode() ? shallowMenuList.filter(basicFilter(routes)) : shallowMenuList;
 }
